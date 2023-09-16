@@ -68,12 +68,11 @@ class _AhadethDetailsScreen extends State<AhadethDetailsScreen> {
   }
 
   Future<void> getFileData(int index) async {
-    String sora;
-    sora = await rootBundle.loadString(Assets.filesAhadeth);
-    print(sora);
-    List<String> soraList = sora.split('#');
-    soraDivide = soraList;
-    print(soraList);
+    String hadeth;
+    hadeth = await rootBundle.loadString(Assets.filesAhadeth);
+    List<String> hadethList = hadeth.split('#');
+    soraDivide = hadethList;
+    print(hadethList);
     setState(() {});
   }
 }

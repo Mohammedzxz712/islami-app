@@ -118,12 +118,14 @@ class Assets {
   static const String files99 = 'assets/files/99.txt';
   static const String filesAhadeth = 'assets/files/ahadeth.txt';
   static const String imagesBg = 'assets/images/bg.png';
+  static const String imagesBodyOfSeb7a = 'assets/images/body_of_seb7a.png';
   static const String imagesBodySebhaDark = 'assets/images/body_sebha_dark.png';
   static const String imagesBodySebhaLogo = 'assets/images/body_sebha_logo.png';
   static const String imagesDarkBg = 'assets/images/dark_bg.png';
   static const String imagesDefaultBg = 'assets/images/default_bg.png';
   static const String imagesGroup7 = 'assets/images/Group_7.png';
   static const String imagesHadethLogo = 'assets/images/hadeth_logo.png';
+  static const String imagesHeadOfSeb7a = 'assets/images/head_of_seb7a.png';
   static const String imagesHeadSebhaDark = 'assets/images/head_sebha_dark.png';
   static const String imagesHeadSebhaLogo = 'assets/images/head_sebha_logo.png';
   static const String imagesHeadSebhaLogo1 =
