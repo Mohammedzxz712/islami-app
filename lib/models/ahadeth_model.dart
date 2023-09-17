@@ -1,6 +1,6 @@
 class AhadethModel {
   String AhadethName;
-  int index;
+  List<String> index;
 
   AhadethModel(this.AhadethName, this.index);
 }

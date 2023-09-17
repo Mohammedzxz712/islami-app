@@ -20,37 +20,52 @@ class _SebhaScreenState extends State<SebhaScreen> {
     'لااله الا الله',
     'الله اكبر'
   ];
+  double turns = 0;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         children: [
-          InkWell(
-            onTap: () {
-              setState(() {
-                counter++;
-                changeZekr();
-              });
-            },
-            child: Container(
-              child: const Image(
-                image: AssetImage(Assets.imagesGroup7),
-                height: 232,
-                width: 172,
+          Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              Container(
+                height: 350,
+                child: AnimatedRotation(
+                  turns: turns,
+                  duration: Duration(seconds: 1),
+                  child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        turns += 1 / 20;
+                        counter++;
+                        changeZekr();
+                      });
+                    },
+                    child: const Image(
+                      image: AssetImage(Assets.imagesBodyOfSeb7a),
+                      height: 220,
+                      width: 232,
+                      // fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              ),
+              const Image(
+                image: AssetImage(Assets.imagesHeadOfSeb7a),
+                height: 90,
+                width: 73,
                 fit: BoxFit.fill,
               ),
-            ),
-          ),
-          const SizedBox(
-            height: 30,
+            ],
           ),
           Text(
             'عدد التسبيحات',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           const SizedBox(
-            height: 30,
+            height: 5,
           ),
           Container(
             height: 81,
