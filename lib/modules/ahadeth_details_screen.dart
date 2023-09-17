@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:islami_app/shared/theme_data.dart';
 
 import '../generated/assets.dart';
-import '../models/ahadeth_model.dart';
+import 'ahadeth/ahadeth_screen.dart';
 
 class AhadethDetailsScreen extends StatefulWidget {
   static const routeName = 'ahadeth';
@@ -13,13 +12,8 @@ class AhadethDetailsScreen extends StatefulWidget {
 }
 
 class _AhadethDetailsScreen extends State<AhadethDetailsScreen> {
-  List<String> soraDivide = [];
-
   Widget build(BuildContext context) {
-    var args = ModalRoute.of(context)?.settings.arguments as AhadethModel;
-    if (soraDivide.isEmpty) {
-      getFileData(args.index);
-    }
+    var args = ModalRoute.of(context)?.settings.arguments as containHadeth;
     return Stack(
       children: [
         Container(
@@ -30,7 +24,7 @@ class _AhadethDetailsScreen extends State<AhadethDetailsScreen> {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              'إسلامي',
+              args.title,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
@@ -46,14 +40,14 @@ class _AhadethDetailsScreen extends State<AhadethDetailsScreen> {
                       borderSide: BorderSide(
                         color: MyTheme.primaryColor,
                       )),
-                  child: soraDivide.isEmpty
+                  child: args.hadeth.isEmpty
                       ? const Center(
                           child: CircularProgressIndicator(
                             color: MyTheme.primaryColor,
                           ),
                         )
                       : Text(
-                          '${soraDivide[args.index]} (${args.index + 1})',
+                          args.hadeth.toString(),
                           textAlign: TextAlign.center,
                           style: MyTheme.lightTheme.textTheme.bodyLarge
                               ?.copyWith(fontSize: 20),
@@ -65,14 +59,5 @@ class _AhadethDetailsScreen extends State<AhadethDetailsScreen> {
         ),
       ],
     );
-  }
-
-  Future<void> getFileData(int index) async {
-    String hadeth;
-    hadeth = await rootBundle.loadString(Assets.filesAhadeth);
-    List<String> hadethList = hadeth.split('#');
-    soraDivide = hadethList;
-    print(hadethList);
-    setState(() {});
   }
 }
