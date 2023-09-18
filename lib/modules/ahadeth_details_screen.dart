@@ -5,7 +5,7 @@ import '../generated/assets.dart';
 import 'ahadeth/ahadeth_screen.dart';
 
 class AhadethDetailsScreen extends StatefulWidget {
-  static const routeName = 'ahadeth';
+  static const routeName = 'ahadethDetails';
 
   @override
   State<AhadethDetailsScreen> createState() => _AhadethDetailsScreen();

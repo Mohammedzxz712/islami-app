@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../generated/assets.dart';
 import '../../shared/theme_data.dart';
@@ -61,7 +62,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
             ],
           ),
           Text(
-            'عدد التسبيحات',
+            AppLocalizations.of(context)!.number,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           const SizedBox(
