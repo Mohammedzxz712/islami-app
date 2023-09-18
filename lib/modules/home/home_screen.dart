@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/models/model_theme_mode.dart';
 import 'package:islami_app/modules/quran/quran_screen.dart';
 import 'package:islami_app/modules/radio/radio_screen.dart';
@@ -48,34 +49,35 @@ class _HomeScreenState extends State<HomeScreen> {
               setState(() {});
             },
             currentIndex: currentIndex,
-            items: const [
+            items: [
               BottomNavigationBarItem(
                   icon: ImageIcon(
                     AssetImage(Assets.imagesIconQuran),
                   ),
-                  label: 'القران'),
+                  label: AppLocalizations.of(context)!.quran),
               BottomNavigationBarItem(
                   icon: ImageIcon(
                     AssetImage(Assets.imagesIconHadeth),
                   ),
-                  label: 'الاحاديث'),
+                  label: AppLocalizations.of(context)!.hadeth),
               BottomNavigationBarItem(
                   icon: ImageIcon(
                     AssetImage(Assets.imagesIconSebha),
                   ),
-                  label: 'سبحه'),
+                  label: AppLocalizations.of(context)!.sebha),
               BottomNavigationBarItem(
                   icon: ImageIcon(
                     AssetImage(Assets.imagesIconRadio),
                   ),
-                  label: 'راديو'),
+                  label: AppLocalizations.of(context)!.radio),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings), label: 'اعدادات'),
+                  icon: Icon(Icons.settings),
+                  label: AppLocalizations.of(context)!.settings),
             ],
           ),
           appBar: AppBar(
             title: Text(
-              'إسلامي',
+              AppLocalizations.of(context)!.app_title,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),

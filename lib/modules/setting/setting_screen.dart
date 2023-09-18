@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -7,9 +8,9 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
         child: Text(
-      'setting',
+      AppLocalizations.of(context)!.settings,
       style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
     ));
   }

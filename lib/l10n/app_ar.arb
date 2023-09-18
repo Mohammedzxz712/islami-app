@@ -1,0 +1,18 @@
+{
+"app_title"  : "إسلامي" ,
+"quran"  : "قرآن",
+"hadeth"  : "حديث" ,
+"sebha"  : "سبحه" ,
+"radio"  : "اذاعه" ,
+"settings" :"اعدادات" ,
+"theme"  : "Theming" ,
+"english" : "الانجليزيه",
+"arabic" : "عربي" ,
+"light"  : "Light" ,
+"dark" :  "Dark" ,
+"language" :  "اللغه" ,
+"sura_name" :  "اسم السوره",
+"hadeth_name" :  "اسم الحديث",
+"radio_name" :  "إذاعه القرآن الكريم",
+"number" :  "عدد التسبيحات"
+}

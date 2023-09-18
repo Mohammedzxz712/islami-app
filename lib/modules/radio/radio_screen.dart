@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/shared/theme_data.dart';
 
 import '../../generated/assets.dart';
@@ -22,7 +23,7 @@ class RadioScreen extends StatelessWidget {
           height: 30,
         ),
         Text(
-          'إذاعه القرآن الكريم',
+          AppLocalizations.of(context)!.radio_name,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
         const SizedBox(
