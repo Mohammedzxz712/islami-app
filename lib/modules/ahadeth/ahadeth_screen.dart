@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/modules/ahadeth_details_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../../generated/assets.dart';
 import '../../shared/theme_data.dart';
+import '../provider.dart';
 
 class AhadethScreen extends StatefulWidget {
   static const String routeName = 'ahadeth';
@@ -18,6 +20,7 @@ class _AhadethScreenState extends State<AhadethScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     if (ahadethContact.isEmpty) {
       getFileData();
     }
@@ -28,15 +31,19 @@ class _AhadethScreenState extends State<AhadethScreen> {
             image: AssetImage(Assets.imagesHadethLogo),
           ),
         ),
-        const Divider(
-          color: MyTheme.primaryColor,
+        Divider(
+          thickness: 1,
+          color:
+              provider.isDark ? const Color(0xffFACC1D) : MyTheme.primaryColor,
         ),
         Text(
           AppLocalizations.of(context)!.hadeth_name,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
-        const Divider(
-          color: MyTheme.primaryColor,
+        Divider(
+          thickness: 1,
+          color:
+              provider.isDark ? const Color(0xffFACC1D) : MyTheme.primaryColor,
         ),
         ahadethContact.isEmpty
             ? const Center(
@@ -58,8 +65,13 @@ class _AhadethScreenState extends State<AhadethScreen> {
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
-                  separatorBuilder: (context, index) => const Divider(
-                      color: MyTheme.primaryColor, indent: 40, endIndent: 40),
+                  separatorBuilder: (context, index) => Divider(
+                      thickness: 1,
+                      color: provider.isDark
+                          ? const Color(0xffFACC1D)
+                          : MyTheme.primaryColor,
+                      indent: 40,
+                      endIndent: 40),
                   itemCount: ahadethContact.length,
                 ),
               ),
@@ -85,6 +97,5 @@ class _AhadethScreenState extends State<AhadethScreen> {
 class containHadeth {
   String title;
   List<String> hadeth;
-
   containHadeth(this.title, this.hadeth);
 }

@@ -3,14 +3,17 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/models/sora_model.dart';
 import 'package:islami_app/modules/sora_screen.dart';
 import 'package:islami_app/shared/theme_data.dart';
+import 'package:provider/provider.dart';
 
 import '../../generated/assets.dart';
 import '../../shared/constant.dart';
+import '../provider.dart';
 
 class QuranScreen extends StatelessWidget {
   static const String routeName = 'quran';
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Column(
       children: [
         const Center(
@@ -18,22 +21,31 @@ class QuranScreen extends StatelessWidget {
             image: AssetImage(Assets.imagesQur2anScreenLogo),
           ),
         ),
-        const Divider(
-          color: MyTheme.primaryColor,
+        Divider(
+          thickness: 1,
+          color:
+              provider.isDark ? const Color(0xffFACC1D) : MyTheme.primaryColor,
         ),
         Text(
           AppLocalizations.of(context)!.sura_name,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
-        const Divider(
-          color: MyTheme.primaryColor,
+        Divider(
+          thickness: 1,
+          color:
+              provider.isDark ? const Color(0xffFACC1D) : MyTheme.primaryColor,
         ),
         Expanded(
           child: ListView.separated(
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) => soraItem(index, context),
-            separatorBuilder: (context, index) => const Divider(
-                color: MyTheme.primaryColor, indent: 40, endIndent: 40),
+            separatorBuilder: (context, index) => Divider(
+                thickness: 1,
+                color: provider.isDark
+                    ? const Color(0xffFACC1D)
+                    : MyTheme.primaryColor,
+                indent: 40,
+                endIndent: 40),
             itemCount: arSuras.length,
           ),
         ),

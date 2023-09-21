@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/models/sora_model.dart';
+import 'package:islami_app/modules/provider.dart';
 import 'package:islami_app/shared/theme_data.dart';
+import 'package:provider/provider.dart';
 
 import '../generated/assets.dart';
 
@@ -16,17 +18,25 @@ class _SoraScreenState extends State<SoraScreen> {
   List<String> soraDivide = [];
 
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     var args = ModalRoute.of(context)?.settings.arguments as SoraModel;
     if (soraDivide.isEmpty) {
       getFileData(args.index);
     }
     return Stack(
       children: [
-        Container(
-          width: double.infinity,
-          height: double.infinity,
-          child: Image.asset(Assets.imagesDefaultBg, fit: BoxFit.cover),
-        ),
+        if (provider.isDark == false)
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            child: Image.asset(Assets.imagesDefaultBg, fit: BoxFit.cover),
+          ),
+        if (provider.isDark)
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            child: Image.asset(Assets.imagesBg, fit: BoxFit.cover),
+          ),
         Scaffold(
           appBar: AppBar(
             title: Text(
@@ -35,6 +45,7 @@ class _SoraScreenState extends State<SoraScreen> {
             ),
           ),
           body: Card(
+            color: provider.isDark ? Color(0xff141A2E) : Colors.white,
             margin: const EdgeInsets.all(16),
             elevation: 12,
             shape: const OutlineInputBorder(
@@ -53,8 +64,11 @@ class _SoraScreenState extends State<SoraScreen> {
                     itemBuilder: (context, index) => Text(
                       '${soraDivide[index]} (${index + 1})',
                       textAlign: TextAlign.center,
-                      style: MyTheme.lightTheme.textTheme.bodyLarge
-                          ?.copyWith(fontSize: 20),
+                      style: MyTheme.lightTheme.textTheme.bodyLarge?.copyWith(
+                        fontSize: 20,
+                        color:
+                            provider.isDark ? Color(0xffFACC1D) : Colors.black,
+                      ),
                     ),
                     separatorBuilder: (context, index) => const Divider(
                       color: MyTheme.primaryColor,

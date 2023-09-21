@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami_app/models/model_theme_mode.dart';
+import 'package:islami_app/modules/provider.dart';
 import 'package:islami_app/modules/quran/quran_screen.dart';
 import 'package:islami_app/modules/radio/radio_screen.dart';
 import 'package:islami_app/modules/sebha/sebha_screen.dart';
 import 'package:islami_app/modules/setting/setting_screen.dart';
 import 'package:islami_app/modules/sora_screen.dart';
 import 'package:islami_app/shared/theme_data.dart';
+import 'package:provider/provider.dart';
 
 import 'modules/ahadeth/ahadeth_screen.dart';
 import 'modules/ahadeth_details_screen.dart';
@@ -14,19 +15,21 @@ import 'modules/home/home_screen.dart';
 import 'modules/splash/splash_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (BuildContext context) => MyProvider(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      locale: Locale('en'),
+      locale: Locale(provider.language),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       theme: MyTheme.lightTheme,
-      themeMode: MyThemeMode.isDark ? ThemeMode.dark : ThemeMode.light,
+      themeMode: provider.isDark ? ThemeMode.dark : ThemeMode.light,
       darkTheme: MyTheme.darkTheme,
       initialRoute: SplashScreen.routeName,
       routes: {

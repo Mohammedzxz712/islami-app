@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/shared/theme_data.dart';
+import 'package:provider/provider.dart';
 
 import '../../generated/assets.dart';
+import '../provider.dart';
 
 class RadioScreen extends StatelessWidget {
   const RadioScreen({super.key});
@@ -11,6 +13,7 @@ class RadioScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Column(
       children: [
         const SizedBox(
@@ -34,9 +37,11 @@ class RadioScreen extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {},
-              icon: const Icon(
+              icon: Icon(
                 Icons.skip_previous,
-                color: MyTheme.primaryColor,
+                color: provider.isDark
+                    ? const Color(0xffFACC1D)
+                    : MyTheme.primaryColor,
                 size: 40,
               ),
             ),
@@ -45,9 +50,11 @@ class RadioScreen extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {},
-              icon: const Icon(
+              icon: Icon(
                 Icons.play_arrow,
-                color: MyTheme.primaryColor,
+                color: provider.isDark
+                    ? const Color(0xffFACC1D)
+                    : MyTheme.primaryColor,
                 size: 40,
               ),
             ),
@@ -56,9 +63,11 @@ class RadioScreen extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {},
-              icon: const Icon(
+              icon: Icon(
                 Icons.skip_next,
-                color: MyTheme.primaryColor,
+                color: provider.isDark
+                    ? const Color(0xffFACC1D)
+                    : MyTheme.primaryColor,
                 size: 40,
               ),
             ),

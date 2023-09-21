@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 import '../../generated/assets.dart';
 import '../../shared/theme_data.dart';
+import '../provider.dart';
 
 class SebhaScreen extends StatefulWidget {
   static const String routeName = 'sebha';
@@ -25,6 +27,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Center(
       child: Column(
         children: [
@@ -44,8 +47,10 @@ class _SebhaScreenState extends State<SebhaScreen> {
                         changeZekr();
                       });
                     },
-                    child: const Image(
-                      image: AssetImage(Assets.imagesBodyOfSeb7a),
+                    child: Image(
+                      image: provider.isDark
+                          ? const AssetImage(Assets.imagesBodySebhaDark)
+                          : const AssetImage(Assets.imagesBodyOfSeb7a),
                       height: 220,
                       width: 232,
                       // fit: BoxFit.fill,
@@ -53,8 +58,10 @@ class _SebhaScreenState extends State<SebhaScreen> {
                   ),
                 ),
               ),
-              const Image(
-                image: AssetImage(Assets.imagesHeadOfSeb7a),
+              Image(
+                image: provider.isDark
+                    ? const AssetImage(Assets.imagesHeadSebhaDark)
+                    : const AssetImage(Assets.imagesHeadOfSeb7a),
                 height: 90,
                 width: 73,
                 fit: BoxFit.fill,
@@ -73,12 +80,16 @@ class _SebhaScreenState extends State<SebhaScreen> {
             width: 69,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: const Color(0xffB7935F).withOpacity(.57),
+              color: provider.isDark
+                  ? Color(0xff141A2E)
+                  : const Color(0xffB7935F).withOpacity(.57),
             ),
             child: Center(
               child: Text(
                 '$counter',
-                style: Theme.of(context).textTheme.bodyLarge,
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: provider.isDark ? Colors.white : Colors.black,
+                    ),
               ),
             ),
           ),
@@ -90,16 +101,14 @@ class _SebhaScreenState extends State<SebhaScreen> {
             width: 147,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: MyTheme.primaryColor,
+              color: provider.isDark ? Color(0xffFACC1D) : MyTheme.primaryColor,
             ),
             child: Text(
               zekr,
               textAlign: TextAlign.center,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyLarge!
-                  .copyWith(fontSize: 25)
-                  .copyWith(color: Color(0xffFFFFFF)),
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  fontSize: 25,
+                  color: provider.isDark ? Colors.black : Colors.white),
             ),
           ),
         ],

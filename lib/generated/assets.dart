@@ -121,6 +121,7 @@ class Assets {
   static const String imagesBodyOfSeb7a = 'assets/images/body_of_seb7a.png';
   static const String imagesBodySebhaDark = 'assets/images/body_sebha_dark.png';
   static const String imagesBodySebhaLogo = 'assets/images/body_sebha_logo.png';
+  static const String imagesDarkBack = 'assets/images/dark_back.png';
   static const String imagesDarkBg = 'assets/images/dark_bg.png';
   static const String imagesDefaultBg = 'assets/images/default_bg.png';
   static const String imagesGroup7 = 'assets/images/Group_7.png';

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami_app/models/model_theme_mode.dart';
+import 'package:islami_app/modules/provider.dart';
 import 'package:islami_app/modules/quran/quran_screen.dart';
 import 'package:islami_app/modules/radio/radio_screen.dart';
 import 'package:islami_app/modules/sebha/sebha_screen.dart';
 import 'package:islami_app/modules/setting/setting_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../../generated/assets.dart';
 import '../ahadeth/ahadeth_screen.dart';
@@ -28,15 +29,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Stack(
       children: [
-        if (MyThemeMode.isDark == false)
+        if (provider.isDark == false)
           Container(
             width: double.infinity,
             height: double.infinity,
             child: Image.asset(Assets.imagesDefaultBg, fit: BoxFit.cover),
           ),
-        if (MyThemeMode.isDark)
+        if (provider.isDark)
           Container(
             width: double.infinity,
             height: double.infinity,
