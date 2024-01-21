@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class MyProvider extends ChangeNotifier {
-  String language = 'en';
+  String language = 'ar';
   bool isDark = false;
 
   void changeLang() {

@@ -11,6 +11,9 @@ import '../provider.dart';
 
 class QuranScreen extends StatelessWidget {
   static const String routeName = 'quran';
+
+  const QuranScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
@@ -40,13 +43,14 @@ class QuranScreen extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) => soraItem(index, context),
             separatorBuilder: (context, index) => Divider(
-                thickness: 1,
-                color: provider.isDark
-                    ? const Color(0xffFACC1D)
-                    : MyTheme.primaryColor,
-                indent: 40,
-                endIndent: 40),
-            itemCount: arSuras.length,
+              thickness: 1,
+              color: provider.isDark
+                  ? const Color(0xffFACC1D)
+                  : MyTheme.primaryColor,
+              indent: 40,
+              endIndent: 40,
+            ),
+            itemCount: arabicSurasNames.length,
           ),
         ),
       ],
@@ -55,11 +59,14 @@ class QuranScreen extends StatelessWidget {
 
   Widget soraItem(int index, context) => InkWell(
         onTap: () {
-          Navigator.pushNamed(context, SoraScreen.routeName,
-              arguments: SoraModel(arSuras[index], index));
+          Navigator.pushNamed(
+            context,
+            SoraScreen.routeName,
+            arguments: SoraModel(arabicSurasNames[index], index),
+          );
         },
         child: Text(
-          arSuras[index],
+          arabicSurasNames[index],
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.bodySmall,
         ),

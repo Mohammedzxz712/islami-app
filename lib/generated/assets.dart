@@ -123,6 +123,10 @@ class Assets {
   static const String imagesBodySebhaLogo = 'assets/images/body_sebha_logo.png';
   static const String imagesDarkBack = 'assets/images/dark_back.png';
   static const String imagesDarkBg = 'assets/images/dark_bg.png';
+  static const String imagesDarkBodyOfSeb7a =
+      'assets/images/dark_body_of_seb7a.png';
+  static const String imagesDarkHeadOfSeb7a =
+      'assets/images/dark_head_of_seb7a.png';
   static const String imagesDefaultBg = 'assets/images/default_bg.png';
   static const String imagesGroup7 = 'assets/images/Group_7.png';
   static const String imagesHadethLogo = 'assets/images/hadeth_logo.png';

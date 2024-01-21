@@ -9,6 +9,8 @@ import '../provider.dart';
 class SebhaScreen extends StatefulWidget {
   static const String routeName = 'sebha';
 
+  const SebhaScreen({super.key});
+
   @override
   State<SebhaScreen> createState() => _SebhaScreenState();
 }
@@ -34,11 +36,11 @@ class _SebhaScreenState extends State<SebhaScreen> {
           Stack(
             alignment: Alignment.topCenter,
             children: [
-              Container(
+              SizedBox(
                 height: 350,
                 child: AnimatedRotation(
                   turns: turns,
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   child: InkWell(
                     onTap: () {
                       setState(() {
@@ -81,7 +83,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: provider.isDark
-                  ? Color(0xff141A2E)
+                  ? const Color(0xff141A2E)
                   : const Color(0xffB7935F).withOpacity(.57),
             ),
             child: Center(
@@ -101,7 +103,9 @@ class _SebhaScreenState extends State<SebhaScreen> {
             width: 147,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: provider.isDark ? Color(0xffFACC1D) : MyTheme.primaryColor,
+              color: provider.isDark
+                  ? const Color(0xffFACC1D)
+                  : MyTheme.primaryColor,
             ),
             child: Text(
               zekr,

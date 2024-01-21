@@ -55,12 +55,12 @@ class MyTheme {
       bodyLarge: GoogleFonts.elMessiri(
         fontWeight: FontWeight.bold,
         fontSize: 30,
-        color: Color(0xffF8F8F8),
+        color: const Color(0xffF8F8F8),
       ),
       bodyMedium: GoogleFonts.elMessiri(
         fontWeight: FontWeight.bold,
         fontSize: 25,
-        color: Color(0xffFACC1D),
+        color: const Color(0xffFACC1D),
       ),
       bodySmall: GoogleFonts.elMessiri(
         fontWeight: FontWeight.bold,

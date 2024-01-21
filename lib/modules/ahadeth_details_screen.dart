@@ -9,24 +9,27 @@ import 'ahadeth/ahadeth_screen.dart';
 class AhadethDetailsScreen extends StatefulWidget {
   static const routeName = 'ahadethDetails';
 
+  const AhadethDetailsScreen({super.key});
+
   @override
   State<AhadethDetailsScreen> createState() => _AhadethDetailsScreen();
 }
 
 class _AhadethDetailsScreen extends State<AhadethDetailsScreen> {
+  @override
   Widget build(BuildContext context) {
-    var args = ModalRoute.of(context)?.settings.arguments as containHadeth;
+    var args = ModalRoute.of(context)?.settings.arguments as ContainHadeth;
     var provider = Provider.of<MyProvider>(context);
     return Stack(
       children: [
         if (provider.isDark == false)
-          Container(
+          SizedBox(
             width: double.infinity,
             height: double.infinity,
             child: Image.asset(Assets.imagesDefaultBg, fit: BoxFit.cover),
           ),
         if (provider.isDark)
-          Container(
+          SizedBox(
             width: double.infinity,
             height: double.infinity,
             child: Image.asset(Assets.imagesBg, fit: BoxFit.cover),
@@ -39,11 +42,12 @@ class _AhadethDetailsScreen extends State<AhadethDetailsScreen> {
             ),
           ),
           body: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
                 Card(
-                  color: provider.isDark ? Color(0xff141A2E) : Colors.white,
+                  color:
+                      provider.isDark ? const Color(0xff141A2E) : Colors.white,
                   margin: const EdgeInsets.all(16),
                   elevation: 12,
                   shape: const OutlineInputBorder(
@@ -64,7 +68,7 @@ class _AhadethDetailsScreen extends State<AhadethDetailsScreen> {
                               MyTheme.lightTheme.textTheme.bodyLarge?.copyWith(
                             fontSize: 20,
                             color: provider.isDark
-                                ? Color(0xffFACC1D)
+                                ? const Color(0xffFACC1D)
                                 : Colors.black,
                           ),
                         ),

@@ -11,12 +11,14 @@ import '../provider.dart';
 class AhadethScreen extends StatefulWidget {
   static const String routeName = 'ahadeth';
 
+  const AhadethScreen({super.key});
+
   @override
   State<AhadethScreen> createState() => _AhadethScreenState();
 }
 
 class _AhadethScreenState extends State<AhadethScreen> {
-  List<containHadeth> ahadethContact = [];
+  List<ContainHadeth> ahadethContact = [];
 
   @override
   Widget build(BuildContext context) {
@@ -87,15 +89,16 @@ class _AhadethScreenState extends State<AhadethScreen> {
       List<String> hadethLine = hadethList[i].split('\n');
       String title = hadethLine[0];
       hadethLine.removeAt(0);
-      containHadeth hadeth = containHadeth(title, hadethLine);
+      ContainHadeth hadeth = ContainHadeth(title, hadethLine);
       ahadethContact.add(hadeth);
     }
     setState(() {});
   }
 }
 
-class containHadeth {
+class ContainHadeth {
   String title;
   List<String> hadeth;
-  containHadeth(this.title, this.hadeth);
+
+  ContainHadeth(this.title, this.hadeth);
 }

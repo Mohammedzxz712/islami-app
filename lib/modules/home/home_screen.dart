@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/modules/home/custom_bottom_nav.dart';
 import 'package:islami_app/modules/provider.dart';
 import 'package:islami_app/modules/quran/quran_screen.dart';
 import 'package:islami_app/modules/radio/radio_screen.dart';
@@ -13,6 +14,8 @@ import '../ahadeth/ahadeth_screen.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
 
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -23,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     QuranScreen(),
     AhadethScreen(),
     SebhaScreen(),
-    RadioScreen(),
+    const RadioScreen(),
     SettingScreen(),
   ];
 
@@ -33,49 +36,24 @@ class _HomeScreenState extends State<HomeScreen> {
     return Stack(
       children: [
         if (provider.isDark == false)
-          Container(
+          SizedBox(
             width: double.infinity,
             height: double.infinity,
             child: Image.asset(Assets.imagesDefaultBg, fit: BoxFit.cover),
           ),
         if (provider.isDark)
-          Container(
+          SizedBox(
             width: double.infinity,
             height: double.infinity,
             child: Image.asset(Assets.imagesBg, fit: BoxFit.cover),
           ),
         Scaffold(
-          bottomNavigationBar: BottomNavigationBar(
+          bottomNavigationBar: CustomBottomNavigationBar(
+            currentIndex: currentIndex,
             onTap: (value) {
               currentIndex = value;
               setState(() {});
             },
-            currentIndex: currentIndex,
-            items: [
-              BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage(Assets.imagesIconQuran),
-                  ),
-                  label: AppLocalizations.of(context)!.quran),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage(Assets.imagesIconHadeth),
-                  ),
-                  label: AppLocalizations.of(context)!.hadeth),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage(Assets.imagesIconSebha),
-                  ),
-                  label: AppLocalizations.of(context)!.sebha),
-              BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage(Assets.imagesIconRadio),
-                  ),
-                  label: AppLocalizations.of(context)!.radio),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.settings),
-                  label: AppLocalizations.of(context)!.settings),
-            ],
           ),
           appBar: AppBar(
             title: Text(

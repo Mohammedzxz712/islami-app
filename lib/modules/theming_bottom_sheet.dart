@@ -11,7 +11,7 @@ class ThemingBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
     return Container(
-      color: provider.isDark ? Color(0xff141A2E) : Colors.white,
+      color: provider.isDark ? const Color(0xff141A2E) : Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
@@ -32,10 +32,10 @@ class ThemingBottomSheet extends StatelessWidget {
                                 ? Colors.white
                                 : Colors.black),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   provider.isDark
-                      ? SizedBox.shrink()
-                      : Icon(
+                      ? const SizedBox.shrink()
+                      : const Icon(
                           Icons.done,
                           size: 30,
                           color: MyTheme.primaryColor,
@@ -59,10 +59,10 @@ class ThemingBottomSheet extends StatelessWidget {
                                 ? Colors.white
                                 : Colors.black),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   provider.isDark == false
-                      ? SizedBox.shrink()
-                      : Icon(
+                      ? const SizedBox.shrink()
+                      : const Icon(
                           Icons.done,
                           size: 30,
                           color: MyTheme.primaryColor,

@@ -1,4 +1,4 @@
-List<String> arSuras = [
+List<String> arabicSurasNames = [
   "الفاتحه",
   "البقرة",
   "آل عمران",

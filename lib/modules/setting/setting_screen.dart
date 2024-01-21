@@ -10,6 +10,8 @@ import '../theming_bottom_sheet.dart';
 class SettingScreen extends StatefulWidget {
   static const String routeName = 'setting';
 
+  const SettingScreen({super.key});
+
   @override
   State<SettingScreen> createState() => _SettingScreenState();
 }
@@ -42,7 +44,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             : MyTheme.primaryColor),
                     borderRadius: BorderRadius.circular(20)),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: provider.language == 'en'
                       ? Text(AppLocalizations.of(context)!.english)
                       : Text(
@@ -71,7 +73,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             : MyTheme.primaryColor),
                     borderRadius: BorderRadius.circular(20)),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: provider.isDark
                       ? Text(AppLocalizations.of(context)!.dark)
                       : Text(
@@ -112,6 +114,3 @@ class _SettingScreenState extends State<SettingScreen> {
     );
   }
 }
-
-// AppLocalizations.of(context)!.settings,
-// style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),

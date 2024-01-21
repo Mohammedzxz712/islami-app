@@ -8,18 +8,23 @@ import 'package:islami_app/modules/setting/setting_screen.dart';
 import 'package:islami_app/modules/sora_screen.dart';
 import 'package:islami_app/shared/theme_data.dart';
 import 'package:provider/provider.dart';
-
 import 'modules/ahadeth/ahadeth_screen.dart';
 import 'modules/ahadeth_details_screen.dart';
 import 'modules/home/home_screen.dart';
 import 'modules/splash/splash_screen.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (BuildContext context) => MyProvider(), child: MyApp()));
+  runApp(
+    ChangeNotifierProvider(
+      create: (BuildContext context) => MyProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
@@ -38,7 +43,7 @@ class MyApp extends StatelessWidget {
         AhadethScreen.routeName: (context) => AhadethScreen(),
         QuranScreen.routeName: (context) => QuranScreen(),
         SettingScreen.routeName: (context) => SettingScreen(),
-        RadioScreen.routeName: (context) => RadioScreen(),
+        RadioScreen.routeName: (context) => const RadioScreen(),
         SebhaScreen.routeName: (context) => SebhaScreen(),
         SoraScreen.routeName: (context) => SoraScreen(),
         AhadethDetailsScreen.routeName: (context) => AhadethDetailsScreen(),
